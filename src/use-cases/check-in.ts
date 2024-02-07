@@ -1,16 +1,16 @@
-import { CheckIn } from '@prisma/client'
 import { CheckInsRepository } from '@/repositories/check-ins-repository'
-import { GymsRepository } from '@/repositories/gym-repository'
-import { ResourceNotFoundError } from './errors/resorce-not-found-error'
-import { getDistanceBetweenCoordinates } from '@/utils/get-distance-between-coordenate'
-import { MaxNumberOfCheckInsError } from './errors/max-number-of-check-ins-error'
-import { MaxDistanceError } from './errors/max-distance.error'
+import { GymsRepository } from '@/repositories/gyms-repository'
+import { MaxDistanceError } from '@/use-cases/errors/max-distance-error'
+import { MaxNumberOfCheckInsError } from '@/use-cases/errors/max-number-of-check-ins-error'
+import { ResourceNotFoundError } from '@/use-cases/errors/resource-not-found-error'
+import { getDistanceBetweenCoordinates } from '@/utils/get-distance-between-coordinates'
+import { CheckIn } from '@prisma/client'
 
 interface CheckInUseCaseRequest {
   userId: string
   gymId: string
-  userlatitude: number
-  userLogitude: number
+  userLatitude: number
+  userLongitude: number
 }
 
 interface CheckInUseCaseResponse {
@@ -26,8 +26,8 @@ export class CheckInUseCase {
   async execute({
     userId,
     gymId,
-    userlatitude,
-    userLogitude,
+    userLatitude,
+    userLongitude,
   }: CheckInUseCaseRequest): Promise<CheckInUseCaseResponse> {
     const gym = await this.gymsRepository.findById(gymId)
 
@@ -36,10 +36,7 @@ export class CheckInUseCase {
     }
 
     const distance = getDistanceBetweenCoordinates(
-      {
-        latitude: userlatitude,
-        longitude: userLogitude,
-      },
+      { latitude: userLatitude, longitude: userLongitude },
       {
         latitude: gym.latitude.toNumber(),
         longitude: gym.longitude.toNumber(),

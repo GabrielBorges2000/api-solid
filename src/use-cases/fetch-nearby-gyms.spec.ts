@@ -5,7 +5,7 @@ import { FetchNearbyGymsUseCase } from './fetch-nearby-gyms'
 let gymsRepository: InMemoryGymsRepository
 let sut: FetchNearbyGymsUseCase
 
-describe('Fetc Nearby Use case', () => {
+describe('Fetch Nearby Gyms Use Case', () => {
   beforeEach(async () => {
     gymsRepository = new InMemoryGymsRepository()
     sut = new FetchNearbyGymsUseCase(gymsRepository)
@@ -14,23 +14,23 @@ describe('Fetc Nearby Use case', () => {
   it('should be able to fetch nearby gyms', async () => {
     await gymsRepository.create({
       title: 'Near Gym',
-      description: '',
-      phone: '',
-      latitude: -23.6296181,
-      longitude: -46.8109733,
+      description: null,
+      phone: null,
+      latitude: -27.2092052,
+      longitude: -49.6401091,
     })
 
     await gymsRepository.create({
       title: 'Far Gym',
-      description: '',
-      phone: '',
-      latitude: -23.5043251,
-      longitude: -46.634854,
+      description: null,
+      phone: null,
+      latitude: -27.0610928,
+      longitude: -49.5229501,
     })
 
     const { gyms } = await sut.execute({
-      userLatitude: -23.6296181,
-      userLongitude: -46.8109733,
+      userLatitude: -27.2092052,
+      userLongitude: -49.6401091,
     })
 
     expect(gyms).toHaveLength(1)
