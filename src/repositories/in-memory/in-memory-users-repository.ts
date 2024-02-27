@@ -25,6 +25,7 @@ export class InMemoryUsersRepository implements UsersRepository {
     return user
   }
 
+  // @ts-ignore
   async create(data: Prisma.UserCreateInput) {
     const user = {
       id: randomUUID(),
@@ -34,6 +35,7 @@ export class InMemoryUsersRepository implements UsersRepository {
       created_at: new Date(),
     }
 
+    // @ts-ignore
     this.items.push(user)
 
     return user

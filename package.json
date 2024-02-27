@@ -4,8 +4,8 @@
   "description": "GymPass style app.",
   "main": "index.js",
   "scripts": {
-    "start:dev": "tsx watch src/server.ts",
-    "start": "node build/server.js",
+    "dev": "tsx watch --env-file=config.env src/server.ts",
+    "start": "node --env-file=config.env build/server.js",
     "test:create-prisma-environment": "npm link ./prisma/vitest-environment-prisma",
     "test:install-prisma-environment": "npm link vitest-environment-prisma",
     "build": "tsup src --out-dir build",
@@ -18,7 +18,8 @@
     "test:ui": "vitest --ui",
     "docker:containers": "docker ps",
     "docker:start": "docker compose up -d",
-    "docker:stop": "docker stop api-solid-api-solid-pg-1"
+    "docker:stop": "docker stop api-solid-api-solid-pg-1",
+    "lint": "eslint . --ext .ts --fix"
   },
   "keywords": [],
   "author": "",
