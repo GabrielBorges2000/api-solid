@@ -42,6 +42,7 @@
 - Vitest (Testes E2E)
 - Arquitetura Solid
 - TDD
+- CI - Github Actions
 
 ## Como Rodar o Projeto
 
