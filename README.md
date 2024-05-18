@@ -1,6 +1,5 @@
-# App
+# API SOLID - Ignite GymPass
 
-GymPass style app.
 
 ## RFs (Requisitos funcionais)
 
@@ -31,3 +30,52 @@ GymPass style app.
 - [x] Todas listas de dados precisam estar paginadas com 20 itens por página;
 - [x] O usuário deve ser identificado por um JWT (JSON Web Token);
 
+
+## Tecnologias Utilizadas
+
+- Node.js
+- Fastify
+- JWT
+- Zod
+- Swagger Fastify UI
+- Docker/Postgresql (para o banco de dados)
+- Vitest (Testes E2E)
+- Arquitetura Solid
+- TDD
+
+## Como Rodar o Projeto
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/api-solid.git
+   ```
+   
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd api-solid
+   ```
+   
+3. Instale as dependências:
+   ```bash
+   pnpm install
+   ```
+   
+4. Inicialize o container docker com o banco de dados Postgresql:
+   ```bash
+   pnpm docker:start
+   ```
+
+5. Configure o schema do banco de dados com o prisma:
+   ```bash
+   pnpm db:migrate
+   ```
+
+6. Abra o navegador e acesse a documentação do swagger e teste as rotas:
+   ```bash
+   http://localhost:3333/docs
+   ```
+   
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE para mais detalhes.

@@ -6,7 +6,7 @@ interface GetUserProfileUseCaseRequest {
   userId: string
 }
 
-interface GetUserProfileUseCaseResponse {
+export interface GetUserProfileUseCaseResponse {
   user: User
 }
 
