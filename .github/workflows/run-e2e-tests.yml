@@ -22,12 +22,12 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 20
-          cache: 'npm'
+          node-version: 18
+          cache: 'pnpm'
 
-      - run: npm ci
+      - run: pnpm ci
 
-      - run: npm run test:e2e
+      - run: pnpm run test:e2e
         env:
           JWT_SECRET: testing
           DATABASE_URL: "postgresql://docker:docker@localhost:5432/apisolid?schema=public"

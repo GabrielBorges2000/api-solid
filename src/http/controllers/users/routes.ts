@@ -31,6 +31,7 @@ export async function usersRoutes(app: FastifyInstance) {
     },
     register,
   )
+  
   app.withTypeProvider<ZodTypeProvider>().post(
     '/sessions',
     {
