@@ -48,7 +48,7 @@
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/api-solid.git
+   git clone https://github.com/GabrielBorges2000/api-solid.git
    ```
    
 2. Navegue até o diretório do projeto:
