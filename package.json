@@ -21,7 +21,7 @@
     "docker:start": "docker compose up -d",
     "docker:stop": "docker stop api-solid-api-solid-pg-1",
     "lint": "eslint . --ext .ts --fix",
-    "studio":"prisma studio"
+    "studio":"prisma studio --disable-open"
   },
   "keywords": [],
   "author": "",
